@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LinkedinClone.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace LinkedinClone
 {
@@ -14,6 +15,11 @@ namespace LinkedinClone
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddTransient<MainPage>();
+
+
+            builder.Services.AddTransient<MainPageViewModel>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
