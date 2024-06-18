@@ -3,17 +3,32 @@
     x:Class="LinkedinClone.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
     x:DataType="viewmodel:MainPageViewModel">
 
     <RefreshView>
         <Grid RowDefinitions="50,*,50">
-            <Grid
-                Grid.Row="0"
-                BackgroundColor="MediumAquamarine"
-                ColumnDefinitions="50,*,50">
-                <Button Grid.Column="0" ImageSource="users.png" />
-                <Button Grid.Column="2" ImageSource="conversation.png" />
+            <Grid Grid.Row="0" ColumnDefinitions="50,*,50">
+                <Grid Grid.Column="0">
+                    <Image Source="users.svg" WidthRequest="25">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{DynamicResource Secondary}" />
+                        </Image.Behaviors>
+                    </Image>
+                </Grid>
+                <Entry
+                    Grid.Column="1"
+                    Margin="8"
+                    BackgroundColor="{DynamicResource Fourth}"
+                    WidthRequest="250" />
+                <Grid Grid.Column="2">
+                    <Image Source="conversation.svg" WidthRequest="25">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{DynamicResource Secondary}" />
+                        </Image.Behaviors>
+                    </Image>
+                </Grid>
             </Grid>
             <ScrollView Grid.Row="1" />
             <Grid

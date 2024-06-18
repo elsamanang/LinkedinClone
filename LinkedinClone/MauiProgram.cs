@@ -1,4 +1,5 @@
-﻿using LinkedinClone.ViewModels;
+﻿using CommunityToolkit.Maui;
+using LinkedinClone.ViewModels;
 using Microsoft.Extensions.Logging;
 
 namespace LinkedinClone
@@ -10,6 +11,7 @@ namespace LinkedinClone
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
