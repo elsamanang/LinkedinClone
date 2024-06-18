@@ -11,7 +11,10 @@
             <Grid
                 Grid.Row="0"
                 BackgroundColor="MediumAquamarine"
-                ColumnDefinitions="40,*,40" />
+                ColumnDefinitions="50,*,50">
+                <Button Grid.Column="0" ImageSource="users.png" />
+                <Button Grid.Column="2" ImageSource="conversation.png" />
+            </Grid>
             <ScrollView Grid.Row="1" />
             <Grid
                 Grid.Row="2"
