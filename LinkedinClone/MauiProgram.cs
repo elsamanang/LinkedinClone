@@ -23,6 +23,8 @@ namespace LinkedinClone
             FormHandler.RemoveBorders();
 
             builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<Emploi>();
+            builder.Services.AddTransient<Reseau>();
 
 
             builder.Services.AddTransient<MainPageViewModel>();

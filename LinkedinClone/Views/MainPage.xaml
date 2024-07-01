@@ -1,40 +1,195 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="LinkedinClone.MainPage"
+    x:Class="LinkedinClone.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:model="clr-namespace:LinkedinClone.Models"
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
     x:DataType="viewmodel:MainPageViewModel">
 
     <RefreshView>
-        <Grid RowDefinitions="50,*,50">
-            <Grid Grid.Row="0" ColumnDefinitions="50,*,50">
-                <Grid Grid.Column="0">
-                    <Image Source="users.svg" WidthRequest="25">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{DynamicResource Secondary}" />
-                        </Image.Behaviors>
-                    </Image>
-                </Grid>
-                <Entry
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding Top}" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="{Binding Down}" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" IsVisible="{Binding  IsNotSearching}" ColumnDefinitions="50,*,50">
+                <Border
+                    Grid.Column="0"
+                    Margin="10,5"
+                    HeightRequest="30"
+                    StrokeThickness="0"
+                    WidthRequest="30">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="32" />
+                    </Border.StrokeShape>
+                    <Image Aspect="AspectFill" Source="profil.jpg" />
+                </Border>
+                <Border
                     Grid.Column="1"
-                    Margin="8"
+                    Margin="8,5"
                     BackgroundColor="{DynamicResource Fourth}"
-                    WidthRequest="250" />
-                <Grid Grid.Column="2">
-                    <Image Source="conversation.svg" WidthRequest="25">
+                    WidthRequest="250">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Margin="8,1, 1, 1"
+                            Aspect="AspectFit"
+                            HeightRequest="15"
+                            HorizontalOptions="Center"
+                            Source="search.png"
+                            VerticalOptions="Center"
+                            WidthRequest="15">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Entry BackgroundColor="Transparent" Grid.Column="1" Placeholder="Chercher">
+                            <Entry.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding HandleSearchingCommand}" />
+                            </Entry.GestureRecognizers>
+                        </Entry>
+                    </Grid>
+                </Border>
+                <Grid
+                    Grid.Column="2"
+                    HeightRequest="25"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="25">
+                    <Image Aspect="AspectFit" Source="conversation.png">
                         <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{DynamicResource Secondary}" />
+                            <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
                         </Image.Behaviors>
                     </Image>
                 </Grid>
             </Grid>
-            <ScrollView Grid.Row="1" />
-            <Grid
-                Grid.Row="2"
-                BackgroundColor="MediumAquamarine"
-                ColumnDefinitions="*,*,*,*,*" />
+            
+            <Grid Grid.Row="0" IsVisible="{Binding IsSearching}" ColumnDefinitions="40,*">
+                <Image
+                    Grid.Column="0"
+                    Aspect="AspectFit"
+                    Margin="10,1,1,1"
+                    HeightRequest="25"
+                    HorizontalOptions="Center"
+                    Source="back.png"
+                    VerticalOptions="Center"
+                    WidthRequest="25">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HandleSearchingCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Border
+                    Grid.Column="1"
+                    Margin="14,5"
+                    Padding="5,0"
+                    BackgroundColor="{DynamicResource Fourth}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="2" />
+                    </Border.StrokeShape>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
+                        </Grid.ColumnDefinitions>
+                        <Entry Grid.Column="0" BackgroundColor="Transparent" Placeholder="Chercher"/>
+                        <Image
+                            Grid.Column="1"
+                            Margin="8,1, 1, 1"
+                            Aspect="AspectFit"
+                            HeightRequest="15"
+                            HorizontalOptions="Center"
+                            Source="qr.png"
+                            VerticalOptions="Center"
+                            WidthRequest="15">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                            </Image.Behaviors>
+                        </Image>
+                    </Grid>
+                </Border>
+            </Grid>
+            <ScrollView Grid.Row="1">
+                <ScrollView.GestureRecognizers>
+                    <PointerGestureRecognizer PointerEnteredCommand="{Binding HandleUpCommand}" />
+                    <PointerGestureRecognizer PointerExitedCommand="{Binding HandleDownCommand}" />
+                </ScrollView.GestureRecognizers>
+                <CollectionView ItemsSource="{Binding Elements}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding .}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <Grid Grid.Row="2">
+                <CollectionView Margin="0" SelectionMode="Single" ItemsSource="{Binding Menus}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Menu">
+                            <Grid Padding="0" Style="{StaticResource MyMenu}"
+                                WidthRequest="70">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer x:DataType="viewmodel:MainPageViewModel" Command="{Binding HanldeNavigateCommand}" 
+                                                          CommandParameter="{Binding Source={x:Reference model:Menu}, Path=Link}"/>
+                                </Grid.GestureRecognizers>
+                                <Border Margin="0" x:Name="MenuBorder">
+                                    <Grid Margin="0" ColumnSpacing="1" Padding="4"
+                                                  RowDefinitions="auto, auto">
+                                    <Image
+                                        x:Name="IconColor"
+                                        Grid.Row="0"
+                                        Aspect="Fill"
+                                        HeightRequest="25"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="{Binding Image}"
+                                        WidthRequest="25">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                    <Image
+                                        x:Name="IconColorTwo"
+                                        Grid.Row="0"
+                                        Aspect="Fill"
+                                        HeightRequest="25"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="{Binding Image}"
+                                        WidthRequest="25">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="{DynamicResource Black}" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                    <Label
+                                        x:Name="label"
+                                        Grid.Row="1"
+                                        FontSize="8"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="{Binding Title}" />
+                                </Grid>
+                                </Border>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
         </Grid>
     </RefreshView>
 
