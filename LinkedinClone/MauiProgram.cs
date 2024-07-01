@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Maui;
+using LinkedinClone.Handlers;
 using LinkedinClone.ViewModels;
+using LinkedinClone.Views;
 using Microsoft.Extensions.Logging;
 
 namespace LinkedinClone
@@ -17,6 +19,8 @@ namespace LinkedinClone
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            
+            FormHandler.RemoveBorders();
 
             builder.Services.AddTransient<MainPage>();
 
