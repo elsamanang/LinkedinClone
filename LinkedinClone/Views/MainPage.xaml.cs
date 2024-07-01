@@ -1,6 +1,6 @@
 ﻿using LinkedinClone.ViewModels;
 
-namespace LinkedinClone
+namespace LinkedinClone.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -9,6 +9,7 @@ namespace LinkedinClone
             InitializeComponent();
             BindingContext = viewModel;
         }
+
 
     }
 
