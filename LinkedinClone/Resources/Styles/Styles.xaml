@@ -38,5 +38,36 @@
         <Setter Property="Shell.DisabledColor" Value="{AppThemeBinding Light={StaticResource SecondaryDarkText}, Dark={StaticResource SecondaryDarkText}}" />
         <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}" />
     </Style>
+    <Style TargetType="CollectionView">
+        
+    </Style>
+    <Style TargetType="Grid" x:Key="MyMenu">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                            <Setter TargetName="label" Property="Label.TextColor" Value="{DynamicResource Secondary}" />
+                            <Setter TargetName="MenuBorder" Property="Border.Stroke" Value="Transparent" />
+                            <Setter TargetName="IconColor" Property="Image.IsVisible" Value="True"/>
+                            <Setter TargetName="IconColorTwo" Property="Image.IsVisible" Value="False"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                            <Setter TargetName="label" Property="Label.TextColor" Value="{DynamicResource Black}" />
+                            <Setter TargetName="MenuBorder" Property="Border.Stroke" Value="{DynamicResource Black}" />
+                            <Setter TargetName="MenuBorder" Property="Border.StrokeShape" Value="Rectangle" />
+                            <Setter TargetName="MenuBorder" Property="Border.StrokeThickness" Value="2" />
+                            <Setter TargetName="IconColorTwo" Property="Image.IsVisible" Value="True"/>
+                            <Setter TargetName="IconColor" Property="Image.IsVisible" Value="False"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>
