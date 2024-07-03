@@ -3,6 +3,7 @@
     x:Class="LinkedinClone.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LinkedinClone.Views"
     xmlns:model="clr-namespace:LinkedinClone.Models"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
@@ -11,147 +12,22 @@
     <RefreshView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="{Binding Top}" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="{Binding Down}" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
-            <Grid
-                Grid.Row="0"
-                ColumnDefinitions="50,*,50"
-                IsVisible="{Binding IsNotSearching}">
-                <Border
-                    Grid.Column="0"
-                    Margin="10,5"
-                    HeightRequest="30"
-                    StrokeThickness="0"
-                    WidthRequest="30">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="32" />
-                    </Border.StrokeShape>
-                    <Image Aspect="AspectFill" Source="profil.jpg" />
-                </Border>
-                <Border
-                    Grid.Column="1"
-                    Margin="8,5"
-                    BackgroundColor="{DynamicResource Fourth}"
-                    WidthRequest="250">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="5" />
-                    </Border.StrokeShape>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Image
-                            Grid.Column="0"
-                            Margin="8,1,1,1"
-                            Aspect="AspectFit"
-                            HeightRequest="15"
-                            HorizontalOptions="Center"
-                            Source="search.png"
-                            VerticalOptions="Center"
-                            WidthRequest="15">
-                            <Image.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
-                            </Image.Behaviors>
-                        </Image>
-                        <Entry
-                            Grid.Column="1"
-                            BackgroundColor="Transparent"
-                            Placeholder="Chercher">
-                            <Entry.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding HandleSearchingCommand}" />
-                            </Entry.GestureRecognizers>
-                        </Entry>
-                    </Grid>
-                </Border>
-                <Grid
-                    Grid.Column="2"
-                    HeightRequest="25"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand"
-                    WidthRequest="25">
-                    <Image Aspect="AspectFit" Source="conversation.png">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
-                        </Image.Behaviors>
-                    </Image>
-                </Grid>
+
+            <Grid Grid.Row="0">
+                <ContentView Content="{Binding MyContent}" />
             </Grid>
 
-            <Grid
-                Grid.Row="0"
-                ColumnDefinitions="40,*"
-                IsVisible="{Binding IsSearching}">
-                <Image
-                    Grid.Column="0"
-                    Margin="10,1,1,1"
-                    Aspect="AspectFit"
-                    HeightRequest="25"
-                    HorizontalOptions="Center"
-                    Source="back.png"
-                    VerticalOptions="Center"
-                    WidthRequest="25">
-                    <Image.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
-                    </Image.Behaviors>
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding HandleSearchingCommand}" />
-                    </Image.GestureRecognizers>
-                </Image>
-                <Border
-                    Grid.Column="1"
-                    Margin="14,5"
-                    Padding="5,0"
-                    BackgroundColor="{DynamicResource Fourth}">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="2" />
-                    </Border.StrokeShape>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="30" />
-                        </Grid.ColumnDefinitions>
-                        <Entry
-                            Grid.Column="0"
-                            BackgroundColor="Transparent"
-                            Placeholder="Chercher" />
-                        <Image
-                            Grid.Column="1"
-                            Margin="8,1,1,1"
-                            Aspect="AspectFit"
-                            HeightRequest="15"
-                            HorizontalOptions="Center"
-                            Source="qr.png"
-                            VerticalOptions="Center"
-                            WidthRequest="15">
-                            <Image.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
-                            </Image.Behaviors>
-                        </Image>
-                    </Grid>
-                </Border>
-            </Grid>
-
-            <ScrollView Grid.Row="1">
-                <ScrollView.GestureRecognizers>
-                    <SwipeGestureRecognizer Command="{Binding HandleUpCommand}" />
-                </ScrollView.GestureRecognizers>
-                <CollectionView ItemsSource="{Binding Elements}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding .}" />
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </ScrollView>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="1">
                 <CollectionView
+                    x:Name="Navig"
                     Margin="0"
                     ItemsSource="{Binding Menus}"
+                    SelectedItem="{Binding SelectedMenu}"
+                    SelectionChangedCommand="{Binding HanldeNavigateCommand}"
+                    SelectionChangedCommandParameter="{Binding SelectedMenu.Link}"
                     SelectionMode="Single">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Horizontal" />
@@ -164,7 +40,7 @@
                                 WidthRequest="70">
                                 <Border x:Name="MenuBorder" Margin="0">
                                     <Grid
-                                        Margin="0"
+                                        Margin="0,2"
                                         Padding="4"
                                         ColumnSpacing="1"
                                         RowDefinitions="auto, auto">

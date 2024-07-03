@@ -1,7 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LinkedinClone.Views.Reseau">
-    <Label Text="Reseau page" HorizontalOptions="Center" VerticalOptions="Center"/>
+<ContentView
+    x:Class="LinkedinClone.Views.Reseau"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:LinkedinClone.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
+    x:DataType="viewmodel:ReseauViewModel">
+    <RefreshView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid
+                Grid.Row="0"
+                ColumnDefinitions="50,*,50"
+                IsVisible="{Binding IsNotSearching}">
+                <Border
+                    Grid.Column="0"
+                    Margin="10,5"
+                    HeightRequest="30"
+                    StrokeThickness="0"
+                    WidthRequest="30">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="32" />
+                    </Border.StrokeShape>
+                    <Image Aspect="AspectFill" Source="profil.jpg" />
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Margin="8,5"
+                    BackgroundColor="{DynamicResource Fourth}"
+                    WidthRequest="250">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Margin="8,1,1,1"
+                            Aspect="AspectFit"
+                            HeightRequest="15"
+                            HorizontalOptions="Center"
+                            Source="search.png"
+                            VerticalOptions="Center"
+                            WidthRequest="15">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Entry
+                            Grid.Column="1"
+                            BackgroundColor="Transparent"
+                            Placeholder="Chercher">
+                            <Entry.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding HandleSearchingCommand}" />
+                            </Entry.GestureRecognizers>
+                        </Entry>
+                    </Grid>
+                </Border>
+                <Grid
+                    Grid.Column="2"
+                    HeightRequest="25"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="25">
+                    <Image Aspect="AspectFit" Source="conversation.png">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                        </Image.Behaviors>
+                    </Image>
+                </Grid>
+            </Grid>
+
+            <Grid
+                Grid.Row="0"
+                ColumnDefinitions="40,*"
+                IsVisible="{Binding IsSearching}">
+                <Image
+                    Grid.Column="0"
+                    Margin="10,1,1,1"
+                    Aspect="AspectFit"
+                    HeightRequest="25"
+                    HorizontalOptions="Center"
+                    Source="back.png"
+                    VerticalOptions="Center"
+                    WidthRequest="25">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HandleSearchingCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Border
+                    Grid.Column="1"
+                    Margin="14,5"
+                    Padding="5,0"
+                    BackgroundColor="{DynamicResource Fourth}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="2" />
+                    </Border.StrokeShape>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
+                        </Grid.ColumnDefinitions>
+                        <Entry
+                            Grid.Column="0"
+                            BackgroundColor="Transparent"
+                            Placeholder="Chercher" />
+                        <Image
+                            Grid.Column="1"
+                            Margin="8,1,1,1"
+                            Aspect="AspectFit"
+                            HeightRequest="15"
+                            HorizontalOptions="Center"
+                            Source="qr.png"
+                            VerticalOptions="Center"
+                            WidthRequest="15">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                            </Image.Behaviors>
+                        </Image>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                Text="Reseau page"
+                VerticalOptions="Center" />
+        </Grid>
+    </RefreshView>
 </ContentView>
