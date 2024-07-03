@@ -38,10 +38,8 @@
         <Setter Property="Shell.DisabledColor" Value="{AppThemeBinding Light={StaticResource SecondaryDarkText}, Dark={StaticResource SecondaryDarkText}}" />
         <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}" />
     </Style>
-    <Style TargetType="CollectionView">
-        
-    </Style>
-    <Style TargetType="Grid" x:Key="MyMenu">
+    <Style TargetType="CollectionView" />
+    <Style x:Key="MyMenu" TargetType="Grid">
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
@@ -50,19 +48,26 @@
                             <Setter Property="BackgroundColor" Value="Transparent" />
                             <Setter TargetName="label" Property="Label.TextColor" Value="{DynamicResource Secondary}" />
                             <Setter TargetName="MenuBorder" Property="Border.Stroke" Value="Transparent" />
-                            <Setter TargetName="IconColor" Property="Image.IsVisible" Value="True"/>
-                            <Setter TargetName="IconColorTwo" Property="Image.IsVisible" Value="False"/>
+                            <Setter TargetName="MenuBorder" Property="Border.Background" Value="Transparent" />
+                            <Setter TargetName="IconColor" Property="Image.IsVisible" Value="True" />
+                            <Setter TargetName="IconColorTwo" Property="Image.IsVisible" Value="False" />
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="Selected">
                         <VisualState.Setters>
                             <Setter Property="BackgroundColor" Value="Transparent" />
                             <Setter TargetName="label" Property="Label.TextColor" Value="{DynamicResource Black}" />
-                            <Setter TargetName="MenuBorder" Property="Border.Stroke" Value="{DynamicResource Black}" />
-                            <Setter TargetName="MenuBorder" Property="Border.StrokeShape" Value="Rectangle" />
-                            <Setter TargetName="MenuBorder" Property="Border.StrokeThickness" Value="2" />
-                            <Setter TargetName="IconColorTwo" Property="Image.IsVisible" Value="True"/>
-                            <Setter TargetName="IconColor" Property="Image.IsVisible" Value="False"/>
+                            <Setter TargetName="MenuBorder" Property="Border.Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0,1">
+                                        <GradientStop Offset="0.04" Color="Black" />
+                                        <GradientStop Offset="0.05" Color="Transparent" />
+                                        <GradientStop Offset="1" Color="Transparent" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="IconColorTwo" Property="Image.IsVisible" Value="True" />
+                            <Setter TargetName="IconColor" Property="Image.IsVisible" Value="False" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>
