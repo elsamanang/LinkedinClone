@@ -25,6 +25,8 @@ namespace LinkedinClone
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<Emploi>();
             builder.Services.AddTransient<Reseau>();
+            builder.Services.AddTransient<Home>();
+            builder.Services.AddTransient<Notication>();
 
 
             builder.Services.AddTransient<MainPageViewModel>();
