@@ -134,7 +134,7 @@
             <Label
                 Grid.Row="1"
                 HorizontalOptions="Center"
-                Text="Home page"
+                Text="{Binding Title}"
                 VerticalOptions="Center" />
         </Grid>
     </RefreshView>

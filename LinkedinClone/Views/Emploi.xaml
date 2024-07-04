@@ -182,7 +182,7 @@
             <Label
                 Grid.Row="1"
                 HorizontalOptions="Center"
-                Text="Emploi page"
+                Text="{Binding Title}"
                 VerticalOptions="Center" />
         </Grid>
     </RefreshView>
