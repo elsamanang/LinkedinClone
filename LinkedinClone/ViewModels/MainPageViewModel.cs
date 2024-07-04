@@ -54,7 +54,7 @@ namespace LinkedinClone.ViewModels
                     MyContent = new Notication();
                     break;
                 default:
-                    Popup popup = new PostModal();
+                    MyContent = new Home();
                     _popupService.ShowPopup<PostModalViewModel>();
                     break;
             }
