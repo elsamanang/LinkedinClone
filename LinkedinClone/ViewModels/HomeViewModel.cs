@@ -18,6 +18,7 @@ namespace LinkedinClone.ViewModels
         public HomeViewModel()
         {
             IsSearching = false;
+            Title = "My Home Page";
         }
 
         [RelayCommand]

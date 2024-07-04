@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using LinkedinClone.Views;
+using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 
 namespace LinkedinClone.ViewModels
 {
@@ -17,10 +19,12 @@ namespace LinkedinClone.ViewModels
         private Menu _selectedMenu;
         public ObservableCollection<Menu> Menus { get; set; }
 
-        public MainPageViewModel()
+        private IPopupService _popupService;
+
+        public MainPageViewModel(IPopupService PopupService)
         {
+            _popupService = PopupService;
             MyContent = new Home();
-            SelectedMenu = new();
             Menus = new ObservableCollection<Menu>()
             {
                 new Menu() { Title= "Acceuil", Image = "home.png", Link = "MainPage"},
@@ -29,6 +33,7 @@ namespace LinkedinClone.ViewModels
                 new Menu() { Title= "Notification", Image = "bell.png", Link = "Notication"},
                 new Menu() { Title= "Emplois", Image = "bag.png", Link = "Emploi"}
             };
+            SelectedMenu = Menus[0];
         }
 
         [RelayCommand]
@@ -49,6 +54,8 @@ namespace LinkedinClone.ViewModels
                     MyContent = new Notication();
                     break;
                 default:
+                    Popup popup = new PostModal();
+                    _popupService.ShowPopup<PostModalViewModel>();
                     break;
             }
         }

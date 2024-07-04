@@ -18,6 +18,7 @@ namespace LinkedinClone.ViewModels
         public EmploiViewModel()
         {
             IsSearching = false;
+            Title = "My Emploi page";
         }
 
         [RelayCommand]
