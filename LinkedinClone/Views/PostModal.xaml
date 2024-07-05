@@ -8,24 +8,92 @@
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
     x:DataType="viewmodel:PostModalViewModel"
     CanBeDismissedByTappingOutsideOfPopup="False"
-    Size="400,500"
+    Size="400,800"
     VerticalOptions="End">
-
-    <ContentView>
-        <StackLayout>
-            <Label
-                HorizontalOptions="Center"
-                Text="{Binding Title}"
-                VerticalOptions="Center" />
-            <Button
-                Margin="0,15"
-                x:DataType="viewmodel:PostModalViewModel"
-                Background="BlueViolet"
-                Command="{Binding HandleCloseCommand}"
-                CommandParameter="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type toolkit:Popup}}}"
-                Text="Close"
-                WidthRequest="200" />
-        </StackLayout>
+    <ContentView BackgroundColor="White">
+        <Grid RowDefinitions="50,*,50">
+            <Grid ColumnDefinitions="40,40,*,40,80">
+                <Image
+                    Grid.Column="0"
+                    Margin="10,1,1,1"
+                    Aspect="AspectFit"
+                    HeightRequest="25"
+                    HorizontalOptions="Center"
+                    Source="cross.png"
+                    WidthRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HandleCloseCommand}" CommandParameter="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type toolkit:Popup}}}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Border
+                    Grid.Column="1"
+                    Margin="10,1,1,1"
+                    HeightRequest="30"
+                    StrokeThickness="0"
+                    WidthRequest="30">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="32" />
+                    </Border.StrokeShape>
+                    <Image Aspect="AspectFill" Source="profil.jpg" />
+                </Border>
+                <Label
+                    Grid.Column="2"
+                    Margin="10,10,1,1"
+                    Text="Tout le monde" />
+                <Image
+                    Grid.Column="3"
+                    Margin="10,1,1,1"
+                    Aspect="AspectFit"
+                    HeightRequest="22"
+                    Source="clock.png"
+                    WidthRequest="22" />
+                <Border
+                    Grid.Column="4"
+                    Margin="10,1,10,1"
+                    Padding="2,1"
+                    Background="{DynamicResource TertiaryBrush}"
+                    HeightRequest="30"
+                    StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="32" />
+                    </Border.StrokeShape>
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Publier"
+                        TextColor="{DynamicResource SecondaryDarkText}"
+                        VerticalOptions="Center" />
+                </Border>
+            </Grid>
+            <Entry
+                Grid.Row="1"
+                Margin="14,1,10,1"
+                Placeholder="Partagez votre avis"
+                PlaceholderColor="{DynamicResource SecondaryDarkText}" />
+            <Grid Grid.Row="2" ColumnDefinitions="*,40,40">
+                <Image
+                    Grid.Column="1"
+                    Margin="10,1,10,1"
+                    Aspect="AspectFit"
+                    HeightRequest="22"
+                    Source="img.png"
+                    WidthRequest="25">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                </Image>
+                <Image
+                    Grid.Column="2"
+                    Margin="10,1,20,1"
+                    Aspect="AspectFit"
+                    HeightRequest="22"
+                    Source="add.png"
+                    WidthRequest="25">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                </Image>
+            </Grid>
+        </Grid>
     </ContentView>
 
 </toolkit:Popup>
