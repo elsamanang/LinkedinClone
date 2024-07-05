@@ -15,7 +15,7 @@ namespace LinkedinClone.ViewModels
         private bool isBusy;
 
         [ObservableProperty]
-        string title;
+        string _title;
 
         public bool IsNotBusy => !isBusy;
     }

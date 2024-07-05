@@ -61,6 +61,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add.svg" />
+	  <None Remove="Resources\Images\clock.svg" />
+	  <None Remove="Resources\Images\img.svg" />
+	  <None Remove="Resources\Images\location.svg" />
+	  <None Remove="Resources\Images\menu.svg" />
 	  <None Remove="Resources\Images\profil.jpg" />
 	</ItemGroup>
 
@@ -75,6 +80,19 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\" />
+	  <Folder Include="Services\Interfaces\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Notication.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PostModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

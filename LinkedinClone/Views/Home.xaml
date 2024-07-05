@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <ContentView
-    x:Class="LinkedinClone.Views.Emploi"
+    x:Class="LinkedinClone.Views.Home"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model="clr-namespace:LinkedinClone.Models"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
-    x:DataType="viewmodel:EmploiViewModel">
+    x:DataType="viewmodel:HomeViewModel">
     <RefreshView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid
                 Grid.Row="0"
-                ColumnDefinitions="50,*,50,50"
+                ColumnDefinitions="50,*,50"
                 IsVisible="{Binding IsNotSearching}">
                 <Border
                     Grid.Column="0"
@@ -29,12 +28,15 @@
                     </Border.StrokeShape>
                     <Image Aspect="AspectFill" Source="profil.jpg" />
                 </Border>
-                <Grid
+                <Border
                     Grid.Column="1"
                     Margin="8,5"
                     BackgroundColor="{DynamicResource Fourth}"
-                    WidthRequest="200">
-                    <Grid Grid.Row="0">
+                    WidthRequest="250">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="30" />
                             <ColumnDefinition Width="*" />
@@ -55,27 +57,15 @@
                         <Entry
                             Grid.Column="1"
                             BackgroundColor="Transparent"
-                            Placeholder="Cherche par intitulé">
+                            Placeholder="Chercher">
                             <Entry.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding HandleSearchingCommand}" />
                             </Entry.GestureRecognizers>
                         </Entry>
                     </Grid>
-                </Grid>
+                </Border>
                 <Grid
                     Grid.Column="2"
-                    HeightRequest="25"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand"
-                    WidthRequest="25">
-                    <Image Aspect="AspectFit" Source="menu.png">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
-                        </Image.Behaviors>
-                    </Image>
-                </Grid>
-                <Grid
-                    Grid.Column="3"
                     HeightRequest="25"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="CenterAndExpand"
@@ -108,36 +98,30 @@
                         <TapGestureRecognizer Command="{Binding HandleSearchingCommand}" />
                     </Image.GestureRecognizers>
                 </Image>
-                <Grid
+                <Border
                     Grid.Column="1"
                     Margin="14,5"
                     Padding="5,0"
-                    RowDefinitions="40,40"
-                    RowSpacing="2">
-                    <Grid Grid.Row="0">
+                    BackgroundColor="{DynamicResource Fourth}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="2" />
+                    </Border.StrokeShape>
+                    <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="1" Margin="5,0">
-                            <Grid.Background>
-                                <LinearGradientBrush EndPoint="0,1">
-                                    <GradientStop Offset="0.95" Color="Transparent" />
-                                    <GradientStop Offset="1" Color="Black" />
-                                </LinearGradientBrush>
-                            </Grid.Background>
-                            <Entry
-                                BackgroundColor="Transparent"
-                                Placeholder="Chercher par intitulé"
-                                TextColor="{DynamicResource Black}" />
-                        </Grid>
-                        <Image
+                        <Entry
                             Grid.Column="0"
+                            BackgroundColor="Transparent"
+                            Placeholder="Chercher" />
+                        <Image
+                            Grid.Column="1"
                             Margin="8,1,1,1"
                             Aspect="AspectFit"
                             HeightRequest="15"
                             HorizontalOptions="Center"
-                            Source="bag.png"
+                            Source="qr.png"
                             VerticalOptions="Center"
                             WidthRequest="15">
                             <Image.Behaviors>
@@ -145,39 +129,7 @@
                             </Image.Behaviors>
                         </Image>
                     </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="1" Margin="5,0">
-                            <Grid.Background>
-                                <LinearGradientBrush EndPoint="0,1">
-                                    <GradientStop Offset="0.95" Color="Transparent" />
-                                    <GradientStop Offset="1" Color="Black" />
-                                </LinearGradientBrush>
-                            </Grid.Background>
-                            <Entry
-                                BackgroundColor="Transparent"
-                                Placeholder="Chercher par localisation"
-                                TextColor="{DynamicResource Black}" />
-                        </Grid>
-
-                        <Image
-                            Grid.Column="0"
-                            Margin="8,1,1,1"
-                            Aspect="AspectFit"
-                            HeightRequest="15"
-                            HorizontalOptions="Center"
-                            Source="location.png"
-                            VerticalOptions="Center"
-                            WidthRequest="15">
-                            <Image.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
-                            </Image.Behaviors>
-                        </Image>
-                    </Grid>
-                </Grid>
+                </Border>
             </Grid>
             <Label
                 Grid.Row="1"

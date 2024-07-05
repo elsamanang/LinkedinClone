@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Core;
 using LinkedinClone.Handlers;
 using LinkedinClone.ViewModels;
 using LinkedinClone.Views;
@@ -25,12 +26,21 @@ namespace LinkedinClone
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<Emploi>();
             builder.Services.AddTransient<Reseau>();
+            builder.Services.AddTransient<Home>();
+            builder.Services.AddTransient<Notication>();
 
 
             builder.Services.AddTransient<MainPageViewModel>();
+            builder.Services.AddTransient<HomeViewModel>();
+            builder.Services.AddTransient<EmploiViewModel>();
+            builder.Services.AddTransient<ReseauViewModel>();
+            builder.Services.AddTransient<NoticationViewModel>();
+
+            builder.Services.AddTransient<IPopupService, PopupService>();
+            builder.Services.AddTransientPopup<PostModal, PostModalViewModel>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
