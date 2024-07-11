@@ -62,19 +62,26 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\add.svg" />
+	  <None Remove="Resources\Images\calendar.svg" />
 	  <None Remove="Resources\Images\clock.svg" />
+	  <None Remove="Resources\Images\group.svg" />
 	  <None Remove="Resources\Images\img.svg" />
+	  <None Remove="Resources\Images\info.svg" />
 	  <None Remove="Resources\Images\location.svg" />
 	  <None Remove="Resources\Images\menu.svg" />
+	  <None Remove="Resources\Images\minus.svg" />
+	  <None Remove="Resources\Images\play.svg" />
 	  <None Remove="Resources\Images\profil.jpg" />
+	  <None Remove="Resources\Images\right.svg" />
+	  <None Remove="Resources\Images\world.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Bogus" Version="35.5.1" />
-		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.2" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.60" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.60" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.70" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.70" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
@@ -85,6 +92,12 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PostPrivacyModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProgrammerModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Notication.xaml">
