@@ -34,6 +34,9 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="32" />
                     </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HandlePrivacyCommand}" />
+                    </Border.GestureRecognizers>
                     <Image Aspect="AspectFill" Source="profil.jpg" />
                 </Border>
                 <Label
@@ -46,7 +49,11 @@
                     Aspect="AspectFit"
                     HeightRequest="22"
                     Source="clock.png"
-                    WidthRequest="22" />
+                    WidthRequest="22">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HandleProgrammerCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
                 <Border
                     Grid.Column="4"
                     Margin="10,1,10,1"
