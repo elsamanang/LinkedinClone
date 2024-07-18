@@ -97,6 +97,9 @@
 	  <MauiXaml Update="Views\PostPrivacyModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ProfilModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ProgrammerModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

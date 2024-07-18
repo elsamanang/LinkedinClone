@@ -6,12 +6,94 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
     x:DataType="viewmodel:ProgrammerModalViewModel"
-    Size="400,300"
+    Size="400,415"
     VerticalOptions="End">
-    <VerticalStackLayout>
+    <Grid
+        Padding="16"
+        BackgroundColor="White"
+        RadioButtonGroup.GroupName="privacy"
+        RowDefinitions="8,30,*,*,*,*"
+        RowSpacing="25">
+        <Image
+            Grid.Row="0"
+            Aspect="AspectFill"
+            HeightRequest="5"
+            Source="minus.png"
+            VerticalOptions="Center"
+            WidthRequest="55" />
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+            <Label
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Programmer"
+                TextColor="{DynamicResource PrimaryDarkText}"
+                VerticalOptions="Center" />
+            <StackLayout
+                Grid.Column="1"
+                HorizontalOptions="End"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+                <Label FontSize="18" Text="Tout voir" />
+                <Image
+                    Margin="4"
+                    Aspect="AspectFit"
+                    HeightRequest="22"
+                    Source="right.png"
+                    WidthRequest="22">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                </Image>
+            </StackLayout>
+        </Grid>
+        <StackLayout Grid.Row="2">
+            <Label Text="Date*" TextColor="{DynamicResource SecondaryDarkText}" />
+            <Border>
+                <Grid ColumnDefinitions="*,40">
+                    <Entry />
+                    <Image
+                        Grid.Column="2"
+                        Aspect="AspectFill"
+                        HeightRequest="18"
+                        Source="calendar.png"
+                        WidthRequest="18" />
+                </Grid>
+            </Border>
+        </StackLayout>
+        <StackLayout Grid.Row="3">
+            <Label Text="Heure*" TextColor="{DynamicResource SecondaryDarkText}" />
+            <Border>
+                <Grid ColumnDefinitions="*,40">
+                    <Entry />
+                    <Image
+                        Grid.Column="2"
+                        Aspect="AspectFill"
+                        HeightRequest="18"
+                        Source="clock.png"
+                        WidthRequest="18" />
+                </Grid>
+            </Border>
+        </StackLayout>
         <Label
-            HorizontalOptions="Center"
-            Text="Welcome to Programmer modal"
+            Grid.Row="4"
+            FontSize="16"
+            Text="Programmer"
+            TextColor="{DynamicResource SecondaryDarkText}"
             VerticalOptions="Center" />
-    </VerticalStackLayout>
+        <Border
+            Grid.Row="5"
+            BackgroundColor="{DynamicResource PrimaryBleu}"
+            HeightRequest="45">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="50" />
+            </Border.StrokeShape>
+            <Label
+                FontAttributes="Bold"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Suivant"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </Border>
+    </Grid>
 </toolkit:Popup>

@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Core;
 using LinkedinClone.ViewModels;
 
 namespace LinkedinClone.Views {
