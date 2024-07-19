@@ -15,10 +15,11 @@ namespace LinkedinClone.ViewModels
         [NotifyPropertyChangedFor(nameof(IsNotSearching))]
         private bool _isSearching;
         public bool IsNotSearching => !IsSearching;
-        private IPopupService? _popupService { get; }
+        private IPopupService _popupService { get; }
 
-        public HomeViewModel()
+        public HomeViewModel(IPopupService popupService)
         {
+            _popupService = popupService;
             IsSearching = false;
             Title = "My Home Page";
         }
