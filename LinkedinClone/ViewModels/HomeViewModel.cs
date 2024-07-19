@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,11 @@ namespace LinkedinClone.ViewModels
         [NotifyPropertyChangedFor(nameof(IsNotSearching))]
         private bool _isSearching;
         public bool IsNotSearching => !IsSearching;
+        private IPopupService _popupService { get; }
 
-        public HomeViewModel()
+        public HomeViewModel(IPopupService popupService)
         {
+            _popupService = popupService;
             IsSearching = false;
             Title = "My Home Page";
         }
@@ -25,6 +28,12 @@ namespace LinkedinClone.ViewModels
         private void HandleSearching()
         {
             IsSearching = !IsSearching;
+        }
+
+        [RelayCommand]
+        private void HandleProfile()
+        {
+            _popupService?.ShowPopup<ProfilModalViewModel>();
         }
     }
 }

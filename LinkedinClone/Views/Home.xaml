@@ -26,6 +26,9 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="32" />
                     </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HandleProfileCommand}" />
+                    </Border.GestureRecognizers>
                     <Image Aspect="AspectFill" Source="profil.jpg" />
                 </Border>
                 <Border

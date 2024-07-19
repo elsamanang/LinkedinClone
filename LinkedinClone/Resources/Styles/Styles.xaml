@@ -31,6 +31,67 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}" />
     </Style>
 
+    <!--
+        <Style TargetType="RadioButton">
+    <Setter Property="ControlTemplate">
+        <ControlTemplate>
+            <Border
+                BackgroundColor="Transparent"
+                HeightRequest="50"
+                StrokeThickness="0"
+                WidthRequest="50">
+                <Grid Margin="4" WidthRequest="40">
+                    <Grid
+                        Margin="0,0,4,0"
+                        HeightRequest="20"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        WidthRequest="20">
+                        <Ellipse
+                            Fill="White"
+                            HeightRequest="20"
+                            HorizontalOptions="Center"
+                            Stroke="{DynamicResource SecondaryDarkText}"
+                            StrokeThickness="3"
+                            VerticalOptions="Center"
+                            WidthRequest="20" />
+                        <Ellipse
+                            x:Name="check"
+                            Fill="Transparent"
+                            HeightRequest="12"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="12" />
+                    </Grid>
+                    <ContentPresenter />
+                </Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter Property="Stroke" Value="Green" />
+                                    <Setter TargetName="check" Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter Property="Stroke" Value="{DynamicResource SecondaryDarkText}" />
+                                    <Setter Property="Background" Value="{DynamicResource SecondaryDarkText}" />
+                                    <Setter TargetName="check" Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </Border>
+        </ControlTemplate>
+
+    </Setter>
+</Style>
+
+    -->
+
     <Style ApplyToDerivedTypes="True" TargetType="Shell">
         <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}" />
         <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Light={StaticResource PrimaryDarkText}, Dark={StaticResource PrimaryDarkText}}" />
@@ -38,7 +99,9 @@
         <Setter Property="Shell.DisabledColor" Value="{AppThemeBinding Light={StaticResource SecondaryDarkText}, Dark={StaticResource SecondaryDarkText}}" />
         <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}" />
     </Style>
+
     <Style TargetType="CollectionView" />
+
     <Style x:Key="MyMenu" TargetType="Grid">
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>

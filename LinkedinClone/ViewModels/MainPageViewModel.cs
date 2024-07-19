@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using LinkedinClone.Views;
 using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Maui.Views;
 
 namespace LinkedinClone.ViewModels
 {
@@ -24,7 +23,8 @@ namespace LinkedinClone.ViewModels
         public MainPageViewModel(IPopupService PopupService)
         {
             _popupService = PopupService;
-            MyContent = new Home();
+            var viewModel = new HomeViewModel(_popupService);
+            MyContent = new Home(viewModel);
             Menus = new ObservableCollection<Menu>()
             {
                 new Menu() { Title= "Acceuil", Image = "home.png", Link = "MainPage"},
@@ -42,7 +42,8 @@ namespace LinkedinClone.ViewModels
             switch (page)
             {
                 case "MainPage":
-                    MyContent = new Home();
+                    var homeViewModel = new HomeViewModel(_popupService);
+                    MyContent = new Home(homeViewModel);
                     break;
                 case "Reseau":
                     MyContent = new Reseau();
@@ -54,7 +55,8 @@ namespace LinkedinClone.ViewModels
                     MyContent = new Notication();
                     break;
                 default:
-                    MyContent = new Home();
+                    var omeViewModel = new HomeViewModel(_popupService);
+                    MyContent = new Home(omeViewModel);
                     _popupService.ShowPopup<PostModalViewModel>();
                     break;
             }

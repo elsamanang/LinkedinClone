@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="LinkedinClone.Views.ProfilModal"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
+    x:DataType="viewmodel:ProfilModalViewModel"
+    HorizontalOptions="Start"
+    Size="280,750">
+    <ContentView BackgroundColor="White">
+        <Grid RowDefinitions="290,100,52,*">
+            <Grid Grid.Row="0" RowDefinitions="70,*">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.996" Color="Transparent" />
+                        <GradientStop Offset="1" Color="{DynamicResource Secondary}" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid Grid.Row="0" BackgroundColor="Beige" />
+                <VerticalStackLayout Grid.Row="1" Padding="24,0">
+                    <Border
+                        Grid.Column="0"
+                        Margin="0,-30,0,15"
+                        HeightRequest="70"
+                        HorizontalOptions="Start"
+                        Stroke="White"
+                        StrokeThickness="2"
+                        WidthRequest="70">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="40" />
+                        </Border.StrokeShape>
+                        <Image Aspect="AspectFill" Source="profil.jpg" />
+                    </Border>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="elsa manang"
+                        TextColor="{DynamicResource PrimaryDarkText}" />
+                    <Label
+                        Margin="0,4"
+                        FontSize="15"
+                        Text="Student Ambassador Of Microsoft | Sofware developp..."
+                        TextColor="{DynamicResource PrimaryDarkText}" />
+                    <Label
+                        Margin="0,4"
+                        FontSize="14"
+                        Text="République démocratique du Co..."
+                        TextColor="{DynamicResource SecondaryDarkText}" />
+                    <HorizontalStackLayout Margin="0,4">
+                        <Image
+                            Aspect="AspectFill"
+                            HeightRequest="16"
+                            Source="plus.png"
+                            WidthRequest="16" />
+                        <Label
+                            Margin="6,0"
+                            FontAttributes="Bold"
+                            FontSize="15"
+                            Text="Klassrom.Education"
+                            TextColor="{DynamicResource PrimaryDarkText}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Grid>
+            <Grid Grid.Row="1" RowDefinitions="*,*">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.99" Color="Transparent" />
+                        <GradientStop Offset="1" Color="{DynamicResource Secondary}" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <HorizontalStackLayout Padding="24,0">
+                    <Label
+                        Margin="0,6"
+                        FontAttributes="Bold"
+                        Text="14"
+                        TextColor="{DynamicResource PrimaryDarkText}"
+                        VerticalOptions="Center" />
+                    <Label
+                        Margin="6"
+                        Text="vues de profil"
+                        TextColor="{DynamicResource SecondaryDarkText}"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Row="1" Padding="24,0">
+                    <Label
+                        Margin="0,6"
+                        FontAttributes="Bold"
+                        Text="46"
+                        TextColor="{DynamicResource PrimaryDarkText}" />
+                    <Label
+                        Margin="6"
+                        Text="impression de post"
+                        TextColor="{DynamicResource SecondaryDarkText}" />
+                </HorizontalStackLayout>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.98" Color="Transparent" />
+                        <GradientStop Offset="1" Color="{DynamicResource Secondary}" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Label
+                    Margin="24,6"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="Posts enregistrés"
+                    TextColor="{DynamicResource PrimaryDarkText}"
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+            <Grid Grid.Row="3" RowDefinitions="*,50">
+                <Border
+                    Grid.Row="0"
+                    Margin="24,15"
+                    Background="#faf1e2">
+                    <VerticalStackLayout Padding="10">
+                        <Image
+                            Margin="4,0"
+                            Aspect="AspectFill"
+                            HeightRequest="16"
+                            HorizontalOptions="End"
+                            Source="cross.png"
+                            WidthRequest="16">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="35"
+                            Text="4x"
+                            TextColor="#c2770a" />
+                        <Label
+                            FontSize="15"
+                            LineHeight="1.2"
+                            Text="Les profils des membres Premium sont vus 4x plus en moyenne."
+                            TextColor="{DynamicResource PrimaryDarkText}" />
+                        <HorizontalStackLayout Padding="0,10">
+                            <Border
+                                Background="#c2770a"
+                                HeightRequest="16"
+                                WidthRequest="18" />
+                            <Label
+                                Margin="8,0"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                Text="Réactivez Premium: -50%"
+                                TextColor="{DynamicResource PrimaryDarkText}" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+                <HorizontalStackLayout Grid.Row="1" Margin="24,0">
+                    <Image
+                        Margin="0,2"
+                        Aspect="AspectFill"
+                        HeightRequest="20"
+                        Source="cog.png"
+                        VerticalOptions="StartAndExpand"
+                        WidthRequest="20">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Label
+                        Margin="10,0"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="Péférences"
+                        TextColor="{DynamicResource PrimaryDarkText}" />
+                </HorizontalStackLayout>
+            </Grid>
+        </Grid>
+    </ContentView>
+</toolkit:Popup>

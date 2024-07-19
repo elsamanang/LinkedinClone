@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="LinkedinClone.Views.PostPrivacyModal"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
+    x:DataType="viewmodel:PostPrivacyModalViewModel"
+    Size="400,460"
+    VerticalOptions="End">
+
+    <Grid
+        Padding="16"
+        BackgroundColor="White"
+        RadioButtonGroup.GroupName="privacy"
+        RowDefinitions="8,auto,*,*,*,*,*"
+        RowSpacing="16">
+        <Image
+            Grid.Row="0"
+            Aspect="AspectFill"
+            HeightRequest="5"
+            Source="minus.png"
+            VerticalOptions="Center"
+            WidthRequest="55" />
+        <Label
+            Grid.Row="1"
+            FontAttributes="Bold"
+            FontSize="18"
+            Text="Qui peut voir votre post ?"
+            TextColor="{DynamicResource PrimaryDarkText}" />
+        <Grid
+            Grid.Row="2"
+            ColumnDefinitions="50,*,50"
+            ColumnSpacing="15">
+            <Border
+                Grid.Column="0"
+                Background="{DynamicResource FourthBrush}"
+                HeightRequest="50"
+                StrokeThickness="0"
+                WidthRequest="50">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="32" />
+                </Border.StrokeShape>
+                <Image
+                    Grid.Column="0"
+                    Aspect="AspectFit"
+                    HeightRequest="22"
+                    HorizontalOptions="Center"
+                    Source="world.png"
+                    VerticalOptions="Center"
+                    WidthRequest="22">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                </Image>
+            </Border>
+            <StackLayout Grid.Column="1">
+                <Label
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Tout le monde"
+                    TextColor="{DynamicResource PrimaryDarkText}" />
+                <Label
+                    Grid.Row="0"
+                    Text="Tout le monde sur Linkedin et en dehors"
+                    TextColor="{DynamicResource SecondaryDarkText}" />
+            </StackLayout>
+            <RadioButton Grid.Column="2" Value="tous" />
+        </Grid>
+        <Grid
+            Grid.Row="3"
+            ColumnDefinitions="50,*,50"
+            ColumnSpacing="15">
+            <Border
+                Grid.Column="0"
+                Background="{DynamicResource FourthBrush}"
+                HeightRequest="50"
+                StrokeThickness="0"
+                WidthRequest="50">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="32" />
+                </Border.StrokeShape>
+                <Image
+                    Grid.Column="0"
+                    Aspect="AspectFit"
+                    HeightRequest="22"
+                    HorizontalOptions="Center"
+                    Source="users.png"
+                    VerticalOptions="Center"
+                    WidthRequest="22">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                </Image>
+            </Border>
+            <Label
+                Grid.Column="1"
+                FontAttributes="Bold"
+                FontSize="16"
+                Text="Vos relations"
+                TextColor="{DynamicResource PrimaryDarkText}"
+                VerticalOptions="Center" />
+            <RadioButton Grid.Column="2" Value="relation" />
+        </Grid>
+        <Grid
+            Grid.Row="4"
+            ColumnDefinitions="50,*,50"
+            ColumnSpacing="15">
+            <Border
+                Grid.Column="0"
+                Background="{DynamicResource FourthBrush}"
+                HeightRequest="50"
+                StrokeThickness="0"
+                WidthRequest="50">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="32" />
+                </Border.StrokeShape>
+                <Image
+                    Grid.Column="0"
+                    Aspect="AspectFit"
+                    HeightRequest="22"
+                    HorizontalOptions="Center"
+                    Source="group.png"
+                    VerticalOptions="Center"
+                    WidthRequest="22">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                </Image>
+            </Border>
+            <HorizontalStackLayout Grid.Column="1">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Group"
+                    TextColor="{DynamicResource PrimaryDarkText}"
+                    VerticalOptions="Center" />
+                <Image
+                    Margin="4,0"
+                    Aspect="AspectFill"
+                    HeightRequest="16"
+                    Source="play.png"
+                    VerticalOptions="Center"
+                    WidthRequest="16" />
+            </HorizontalStackLayout>
+            <RadioButton Grid.Column="2" Value="group" />
+        </Grid>
+        <Grid
+            Grid.Row="5"
+            ColumnDefinitions="*,50"
+            ColumnSpacing="15">
+            <StackLayout Grid.Column="0">
+                <Label
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Commande des commentaires"
+                    TextColor="{DynamicResource PrimaryDarkText}" />
+                <Label
+                    Grid.Row="0"
+                    Text="Tout le monde"
+                    TextColor="{DynamicResource SecondaryDarkText}" />
+            </StackLayout>
+            <Image
+                Grid.Column="1"
+                Aspect="AspectFill"
+                HeightRequest="22"
+                Source="play.png"
+                VerticalOptions="Center"
+                WidthRequest="22" />
+        </Grid>
+        <Grid
+            Grid.Row="6"
+            ColumnDefinitions="*,50"
+            ColumnSpacing="15">
+            <StackLayout Grid.Column="0">
+                <HorizontalStackLayout Grid.Row="0">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="Partenariat de marque"
+                        TextColor="{DynamicResource PrimaryDarkText}" />
+                    <Image
+                        Margin="2,0"
+                        Aspect="AspectFill"
+                        HeightRequest="12"
+                        Source="info.png"
+                        WidthRequest="12" />
+                </HorizontalStackLayout>
+                <Label
+                    Grid.Row="0"
+                    Text="Désactivé"
+                    TextColor="{DynamicResource SecondaryDarkText}" />
+            </StackLayout>
+            <Switch
+                Grid.Column="1"
+                HeightRequest="22"
+                IsToggled="False"
+                WidthRequest="22" />
+        </Grid>
+    </Grid>
+</toolkit:Popup>

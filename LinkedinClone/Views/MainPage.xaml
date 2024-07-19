@@ -18,6 +18,7 @@
 
             <Grid Grid.Row="0">
                 <ContentView Content="{Binding MyContent}" />
+                <ContentView />
             </Grid>
 
             <Grid Grid.Row="1">
