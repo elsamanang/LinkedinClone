@@ -46,13 +46,16 @@ namespace LinkedinClone.ViewModels
                     MyContent = new Home(homeViewModel);
                     break;
                 case "Reseau":
-                    MyContent = new Reseau();
+                    var reseauViewModel = new ReseauViewModel(_popupService);
+                    MyContent = new Reseau(reseauViewModel);
                     break;
                 case "Emploi":
-                    MyContent = new Emploi();
+                    var emploiViewModel = new EmploiViewModel(_popupService);
+                    MyContent = new Emploi(emploiViewModel);
                     break;
                 case "Notication":
-                    MyContent = new Notication();
+                    var noticationViewModel = new NoticationViewModel(_popupService);
+                    MyContent = new Notication(noticationViewModel);
                     break;
                 default:
                     var omeViewModel = new HomeViewModel(_popupService);
