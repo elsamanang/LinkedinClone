@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -15,16 +16,37 @@ namespace LinkedinClone.ViewModels
         private bool _isSearching;
         public bool IsNotSearching => !IsSearching;
 
-        public EmploiViewModel()
+        private IPopupService _popupService;
+
+        public EmploiViewModel(IPopupService popupService)
         {
             IsSearching = false;
             Title = "My Emploi page";
+            _popupService = popupService;
         }
 
         [RelayCommand]
         private void HandleSearching()
         {
             IsSearching = !IsSearching;
+        }
+
+        [RelayCommand]
+        private void HandleProfile()
+        {
+            _popupService.ShowPopup<ProfilModalViewModel>();
+        }
+
+        [RelayCommand]
+        private void HanldeMenu()
+        {
+            _popupService.ShowPopup<EmploiMenuModalViewModel>();
+        }
+
+        [RelayCommand]
+        private void HandleMessage()
+        {
+            _popupService.ShowPopup<MessageModalViewModel>();
         }
     }
 }
