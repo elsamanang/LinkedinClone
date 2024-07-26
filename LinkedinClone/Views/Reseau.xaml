@@ -27,6 +27,9 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="32" />
                     </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HandleProfileCommand}" />
+                    </Border.GestureRecognizers>
                     <Image Aspect="AspectFill" Source="profil.jpg" />
                 </Border>
                 <Border
@@ -75,6 +78,9 @@
                         <Image.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
                         </Image.Behaviors>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HandleMessageCommand}" />
+                        </Image.GestureRecognizers>
                     </Image>
                 </Grid>
             </Grid>
