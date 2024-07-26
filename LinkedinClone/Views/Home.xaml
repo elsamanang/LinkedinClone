@@ -77,6 +77,9 @@
                         <Image.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
                         </Image.Behaviors>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HandleMessageCommand}" />
+                        </Image.GestureRecognizers>
                     </Image>
                 </Grid>
             </Grid>
