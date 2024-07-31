@@ -7,45 +7,49 @@
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
     x:DataType="viewmodel:EmploiMenuModalViewModel"
     Size="400,165"
-    VerticalOptions="End">
-    <Grid
+    VerticalOptions="End"
+    Color="Transparent">
+    <Border
         Padding="16"
         BackgroundColor="White"
-        RadioButtonGroup.GroupName="privacy"
-        RowDefinitions="8,*,*,8"
-        RowSpacing="25">
-        <Image
-            Grid.Row="0"
-            Aspect="AspectFill"
-            HeightRequest="5"
-            Source="minus.png"
-            VerticalOptions="Center"
-            WidthRequest="55" />
-        <HorizontalStackLayout Grid.Row="1" Padding="18,0">
+        Stroke="White">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20,20,0,0" />
+        </Border.StrokeShape>
+        <Grid RowDefinitions="8,*,*,8" RowSpacing="25">
             <Image
+                Grid.Row="0"
                 Aspect="AspectFill"
-                HeightRequest="20"
-                Source="bag.png"
-                WidthRequest="20" />
-            <Label
-                Margin="18,0"
-                FontSize="16"
-                Text="Gérer les offres d'emploi"
-                TextColor="{DynamicResource SecondaryDarkText}"
-                VerticalOptions="Center" />
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Grid.Row="2" Padding="18,0">
-            <Image
-                Aspect="AspectFill"
-                HeightRequest="20"
-                Source="clipboard_check.png"
-                WidthRequest="20" />
-            <Label
-                Margin="18,0"
-                FontSize="16"
-                Text="Evaluations des compétences"
-                TextColor="{DynamicResource SecondaryDarkText}"
-                VerticalOptions="Center" />
-        </HorizontalStackLayout>
-    </Grid>
+                HeightRequest="5"
+                Source="minus.png"
+                VerticalOptions="Center"
+                WidthRequest="55" />
+            <HorizontalStackLayout Grid.Row="1" Padding="18,0">
+                <Image
+                    Aspect="AspectFill"
+                    HeightRequest="20"
+                    Source="bag.png"
+                    WidthRequest="20" />
+                <Label
+                    Margin="18,0"
+                    FontSize="16"
+                    Text="Gérer les offres d'emploi"
+                    TextColor="{DynamicResource SecondaryDarkText}"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Row="2" Padding="18,0">
+                <Image
+                    Aspect="AspectFill"
+                    HeightRequest="20"
+                    Source="clipboard_check.png"
+                    WidthRequest="20" />
+                <Label
+                    Margin="18,0"
+                    FontSize="16"
+                    Text="Evaluations des compétences"
+                    TextColor="{DynamicResource SecondaryDarkText}"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Grid>
+    </Border>
 </toolkit:Popup>
