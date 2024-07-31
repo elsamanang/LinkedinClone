@@ -63,6 +63,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\add.svg" />
 	  <None Remove="Resources\Images\calendar.svg" />
+	  <None Remove="Resources\Images\clipboard_check.svg" />
 	  <None Remove="Resources\Images\clock.svg" />
 	  <None Remove="Resources\Images\group.svg" />
 	  <None Remove="Resources\Images\img.svg" />
@@ -91,7 +92,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\EmploiMenuModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MessageModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NoticationModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PostPrivacyModal.xaml">

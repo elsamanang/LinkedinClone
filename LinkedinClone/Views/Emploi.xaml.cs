@@ -9,9 +9,9 @@ namespace LinkedinClone.Views;
 
 public partial class Emploi : ContentView
 {
-    public Emploi()
+    public Emploi(EmploiViewModel viewModel)
     {
         InitializeComponent();
-        BindingContext = new EmploiViewModel();
+        BindingContext = viewModel;
     }
 }

@@ -9,9 +9,9 @@ namespace LinkedinClone.Views;
 
 public partial class Reseau : ContentView
 {
-    public Reseau()
+    public Reseau(ReseauViewModel viewModel)
     {
         InitializeComponent();
-        BindingContext = new ReseauViewModel();
+        BindingContext = viewModel;
     }
 }

@@ -39,12 +39,18 @@ namespace LinkedinClone
             builder.Services.AddTransient<PostPrivacyModalViewModel>();
             builder.Services.AddTransient<ProgrammerModalViewModel>();
             builder.Services.AddTransient<ProfilModalViewModel>();
+            builder.Services.AddTransient<EmploiMenuModalViewModel>();
+            builder.Services.AddTransient<NoticationModalViewModel>();
+            builder.Services.AddTransient<MessageModalViewModel>();
 
             builder.Services.AddTransient<IPopupService, PopupService>();
             builder.Services.AddTransientPopup<PostModal, PostModalViewModel>();
             builder.Services.AddTransientPopup<PostPrivacyModal, PostPrivacyModalViewModel>();
             builder.Services.AddTransientPopup<ProgrammerModal, ProgrammerModalViewModel>();
             builder.Services.AddTransientPopup<ProfilModal, ProfilModalViewModel>();
+            builder.Services.AddTransientPopup<EmploiMenuModal, EmploiMenuModalViewModel>();
+            builder.Services.AddTransientPopup<NoticationModal, NoticationModalViewModel>();
+            builder.Services.AddTransientPopup<MessageModal, MessageModalViewModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();

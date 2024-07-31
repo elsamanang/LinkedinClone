@@ -4,9 +4,9 @@ namespace LinkedinClone.Views;
 
 public partial class Notication : ContentView
 {
-	public Notication()
+	public Notication(NoticationViewModel viewModel)
 	{
 		InitializeComponent();
-		BindingContext = new NoticationViewModel();
+		BindingContext = viewModel;
 	}
 }

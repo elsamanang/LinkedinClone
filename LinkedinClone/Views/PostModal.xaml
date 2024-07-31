@@ -8,8 +8,10 @@
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
     x:DataType="viewmodel:PostModalViewModel"
     CanBeDismissedByTappingOutsideOfPopup="False"
+    Opened="Popup_Opened"
     Size="400,800"
-    VerticalOptions="End">
+    VerticalOptions="End"
+    Color="Transparent">
     <ContentView BackgroundColor="White">
         <Grid RowDefinitions="50,*,50">
             <Grid ColumnDefinitions="40,40,*,40,80">

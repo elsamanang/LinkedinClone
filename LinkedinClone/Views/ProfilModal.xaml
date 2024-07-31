@@ -6,8 +6,11 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
     x:DataType="viewmodel:ProfilModalViewModel"
+    Closed="Popup_Closed"
     HorizontalOptions="Start"
-    Size="280,750">
+    Opened="Popup_Opened"
+    Size="280,750"
+    Color="Transparent">
     <ContentView BackgroundColor="White">
         <Grid RowDefinitions="290,100,52,*">
             <Grid Grid.Row="0" RowDefinitions="70,*">

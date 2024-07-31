@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="LinkedinClone.Views.MessageModal"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
+    x:Name="MyPopup"
+    x:DataType="viewmodel:MessageModalViewModel"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    Size="400,800"
+    VerticalOptions="End"
+    Color="Transparent">
+    <ContentView  x:Name="contentView" BackgroundColor="White">
+        <Grid RowDefinitions="60,50,*">
+            <Grid Padding="10,0" ColumnDefinitions="40,*,40">
+                <Image
+                    Grid.Column="0"
+                    Aspect="AspectFit"
+                    HeightRequest="25"
+                    HorizontalOptions="Center"
+                    Source="back.png"
+                    WidthRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HandleCloseCommand}" CommandParameter="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type toolkit:Popup}}}" />
+                    </Image.GestureRecognizers>
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                    </Image.Behaviors>
+                </Image>
+                <Border
+                    Grid.Column="1"
+                    Margin="10"
+                    BackgroundColor="{DynamicResource Fourth}"
+                    WidthRequest="250">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Margin="8,1,1,1"
+                            Aspect="AspectFit"
+                            HeightRequest="15"
+                            HorizontalOptions="Center"
+                            Source="search.png"
+                            VerticalOptions="Center"
+                            WidthRequest="15">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#6E6E6E" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Entry
+                            Grid.Column="1"
+                            BackgroundColor="Transparent"
+                            Placeholder="Chercher dans les mes..." />
+                    </Grid>
+                </Border>
+                <Image
+                    Grid.Column="2"
+                    Aspect="AspectFit"
+                    HeightRequest="25"
+                    HorizontalOptions="Center"
+                    Source="menu.png"
+                    WidthRequest="25" />
+            </Grid>
+        </Grid>
+    </ContentView>
+</toolkit:Popup>

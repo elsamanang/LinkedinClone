@@ -15,7 +15,7 @@ namespace LinkedinClone.ViewModels
         [NotifyPropertyChangedFor(nameof(IsNotSearching))]
         private bool _isSearching;
         public bool IsNotSearching => !IsSearching;
-        private IPopupService _popupService { get; }
+        private IPopupService _popupService;
 
         public HomeViewModel(IPopupService popupService)
         {
@@ -33,7 +33,13 @@ namespace LinkedinClone.ViewModels
         [RelayCommand]
         private void HandleProfile()
         {
-            _popupService?.ShowPopup<ProfilModalViewModel>();
+            _popupService.ShowPopup<ProfilModalViewModel>();
+        }
+
+        [RelayCommand]
+        private void HandleMessage()
+        {
+            _popupService.ShowPopup<MessageModalViewModel>();
         }
     }
 }

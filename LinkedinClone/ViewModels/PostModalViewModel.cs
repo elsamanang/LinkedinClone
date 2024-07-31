@@ -20,9 +20,20 @@ namespace LinkedinClone.ViewModels
         }
 
         [RelayCommand]
-        public void HandleClose(Popup popup)
+        public async Task HandleClose(Popup popup)
         {
+            popup.VerticalOptions = Microsoft.Maui.Primitives.LayoutAlignment.End;
+            for (int i = 50; i < 800; i += 50)
+            {
+                popup.Content.TranslationY = i;
+                await HanldeDelay();
+            }
             popup.Close();
+        }
+
+        public Task HanldeDelay()
+        {
+            return Task.Delay(1);
         }
 
         [RelayCommand]

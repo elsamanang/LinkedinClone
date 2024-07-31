@@ -10,5 +10,20 @@ public partial class PostModal : Popup
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
-	}
+    }
+
+    private async void Popup_Opened(object sender, PopupOpenedEventArgs e)
+    {
+        //this.VerticalOptions = Microsoft.Maui.Primitives.LayoutAlignment.End;
+        for (int i = 750; i > -1; i -= 50)
+        {
+            this.Content.TranslationY = i;
+            await HanldeDelay();
+        }
+    }
+
+    public Task HanldeDelay()
+    {
+        return Task.Delay(1);
+    }
 }
