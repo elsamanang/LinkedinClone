@@ -1,8 +1,11 @@
 ﻿using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using LinkedinClone.Models;
+using LinkedinClone.Utiles;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +17,9 @@ namespace LinkedinClone.ViewModels
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotSearching))]
         private bool _isSearching;
+
+        [ObservableProperty]
+        public ObservableCollection<Post> _posts;
         public bool IsNotSearching => !IsSearching;
         private IPopupService _popupService;
 
@@ -22,6 +28,8 @@ namespace LinkedinClone.ViewModels
             _popupService = popupService;
             IsSearching = false;
             Title = "My Home Page";
+            var data = MockGenerator.GeneratePosts(20);
+            Posts = new ObservableCollection<Post>(data.OrderByDescending(p => p.DateCreation));
         }
 
         [RelayCommand]

@@ -137,11 +137,35 @@
                     </Grid>
                 </Border>
             </Grid>
-            <Label
+            <CollectionView
                 Grid.Row="1"
-                HorizontalOptions="Center"
-                Text="{Binding Title}"
-                VerticalOptions="Center" />
+                Margin="0"
+                BackgroundColor="{DynamicResource Secondary}"
+                ItemsSource="{Binding Posts}"
+                SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Post">
+                        <Grid
+                            Margin="0,10,0,0"
+                            BackgroundColor="White"
+                            RowDefinitions="80,auto,auto,40,40"
+                            RowSpacing="5">
+                            <Label
+                                Grid.Row="1"
+                                Margin="15"
+                                Text="{Binding Details}"
+                                TextColor="Black" />
+                            <Image
+                                Grid.Row="2"
+                                Aspect="AspectFill"
+                                Source="{Binding PostPicture}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
     </RefreshView>
 </ContentView>
