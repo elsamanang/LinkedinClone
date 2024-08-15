@@ -74,6 +74,7 @@
 	  <None Remove="Resources\Images\play.svg" />
 	  <None Remove="Resources\Images\profil.jpg" />
 	  <None Remove="Resources\Images\right.svg" />
+	  <None Remove="Resources\Images\sync.svg" />
 	  <None Remove="Resources\Images\world.svg" />
 	</ItemGroup>
 
