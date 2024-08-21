@@ -23,6 +23,7 @@ namespace LinkedinClone.ViewModels
         public bool IsNotSearching => !IsSearching;
         private IPopupService _popupService;
 
+
         public HomeViewModel(IPopupService popupService)
         {
             _popupService = popupService;
