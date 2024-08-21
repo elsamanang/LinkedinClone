@@ -3,10 +3,14 @@
     x:Class="LinkedinClone.Views.Home"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LinkedinClone.Utiles"
     xmlns:model="clr-namespace:LinkedinClone.Models"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodel="clr-namespace:LinkedinClone.ViewModels"
     x:DataType="viewmodel:HomeViewModel">
+    <ContentView.Resources>
+        <local:VisibilityConverter x:Key="IntToVisibilityConverter" />
+    </ContentView.Resources>
     <RefreshView>
         <Grid>
             <Grid.RowDefinitions>
@@ -245,6 +249,7 @@
                                 <Border
                                     Background="{DynamicResource PrimaryBleu}"
                                     HeightRequest="18"
+                                    IsVisible="{Binding PostLike, Converter={StaticResource IntToVisibilityConverter}}"
                                     StrokeThickness="0"
                                     WidthRequest="18">
                                     <Border.StrokeShape>
@@ -266,6 +271,7 @@
                                     Margin="-4,0,0,0"
                                     Background="PaleVioletRed"
                                     HeightRequest="18"
+                                    IsVisible="{Binding PostLove, Converter={StaticResource IntToVisibilityConverter}}"
                                     StrokeThickness="0"
                                     WidthRequest="18">
                                     <Border.StrokeShape>
@@ -287,6 +293,7 @@
                                     Margin="-4,0,0,0"
                                     Background="ForestGreen"
                                     HeightRequest="18"
+                                    IsVisible="{Binding PostClap, Converter={StaticResource IntToVisibilityConverter}}"
                                     StrokeThickness="0"
                                     WidthRequest="18">
                                     <Border.StrokeShape>
@@ -304,6 +311,73 @@
                                         </Image.Behaviors>
                                     </Image>
                                 </Border>
+                                <Border
+                                    Margin="-4,0,0,0"
+                                    Background="CadetBlue"
+                                    HeightRequest="18"
+                                    IsVisible="{Binding PostSmile, Converter={StaticResource IntToVisibilityConverter}}"
+                                    StrokeThickness="0"
+                                    WidthRequest="18">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="15" />
+                                    </Border.StrokeShape>
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="12"
+                                        HorizontalOptions="Center"
+                                        Source="smile.png"
+                                        VerticalOptions="Center"
+                                        WidthRequest="11">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="White" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                </Border>
+                                <Border
+                                    Margin="-4,0,0,0"
+                                    Background="Orange"
+                                    HeightRequest="18"
+                                    IsVisible="{Binding PostIdea, Converter={StaticResource IntToVisibilityConverter}}"
+                                    StrokeThickness="0"
+                                    WidthRequest="18">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="15" />
+                                    </Border.StrokeShape>
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="12"
+                                        HorizontalOptions="Center"
+                                        Source="idea.png"
+                                        VerticalOptions="Center"
+                                        WidthRequest="11">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="White" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                </Border>
+                                <Border
+                                    Margin="-4,0,0,0"
+                                    Background="MediumPurple"
+                                    HeightRequest="18"
+                                    IsVisible="{Binding PostSupport, Converter={StaticResource IntToVisibilityConverter}}"
+                                    StrokeThickness="0"
+                                    WidthRequest="18">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="15" />
+                                    </Border.StrokeShape>
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="12"
+                                        HorizontalOptions="Center"
+                                        Source="support.png"
+                                        VerticalOptions="Center"
+                                        WidthRequest="11">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="White" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                </Border>
+                                <Label Margin="8,4,0,0" Text="{Binding PostLike}" />
                             </HorizontalStackLayout>
                             <Grid
                                 Grid.Row="4"

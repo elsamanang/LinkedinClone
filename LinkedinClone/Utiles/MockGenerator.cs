@@ -20,11 +20,11 @@ namespace LinkedinClone.Utiles
                 .RuleFor(m => m.Details, f => f.Lorem.Paragraph())
                 .RuleFor(m => m.PostPicture, f => f.Image.PicsumUrl())
                 .RuleFor(m => m.PostLove, f => rdm.Next(0,20))
-                .RuleFor(m => m.PostLike, f => rdm.Next(0, 20))
-                .RuleFor(m => m.PostSupport, f => rdm.Next(0, 20))
-                .RuleFor(m => m.PostClap, f => rdm.Next(0,20))
-                .RuleFor(m => m.PostSmile, f => rdm.Next(0,20))
-                .RuleFor(m => m.PostIdea, f => rdm.Next(0,20))
+                .RuleFor(m => m.PostLike, f => rdm.Next(0, 40))
+                .RuleFor(m => m.PostSupport, f => rdm.Next(0, 2))
+                .RuleFor(m => m.PostClap, f => rdm.Next(0, 2))
+                .RuleFor(m => m.PostSmile, f => rdm.Next(0, 2))
+                .RuleFor(m => m.PostIdea, f => rdm.Next(0, 2))
                 .RuleFor(m => m.DateCreation, f => f.Date.Past(Random.Shared.Next(1, 5), DateTime.Now))
                 ;
 
